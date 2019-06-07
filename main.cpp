@@ -27,7 +27,8 @@ int main(int argc, char* argv[]){
     cout << "Antes Do Quicksort" <<endl;
     imprimirVetor(vetor,tamanhoVetor);
     cout <<endl;
-    quicksort(vetor,0,tamanhoVetor);
+    //quicksort(vetor,0,tamanhoVetor);
+    quicksortMedianaDeTres(vetor,0,tamanhoVetor);
     cout << " Depois Do Quicksort" <<endl;
     imprimirVetor(vetor,tamanhoVetor);
     free(vetor);
