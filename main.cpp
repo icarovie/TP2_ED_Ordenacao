@@ -23,12 +23,13 @@ int main(int argc, char* argv[]){
     definirTipo(tipoVetorString, &tipoVetorInt);
 
     int *vetor = gerarVetor(tipoVetorInt,tamanhoVetor);
+
     cout << "Antes Do Quicksort" <<endl;
     imprimirVetor(vetor,tamanhoVetor);
     cout <<endl;
     quicksort(vetor,0,tamanhoVetor);
     cout << " Depois Do Quicksort" <<endl;
     imprimirVetor(vetor,tamanhoVetor);
-    delete vetor;
+    free(vetor);
 	return 0;
 }
