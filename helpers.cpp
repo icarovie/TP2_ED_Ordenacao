@@ -48,13 +48,11 @@ void imprimirVetor(int *vetor, int n){
         cout << vetor[i] << " ";
 }
 
-/*
-void definirTipo(string tipoString, int *tipo){
+void definirTipo(string tipoString, int *tipoInt){
     if(tipoString == "Ale")
-        tipo = 1;
+        *tipoInt = 1;
     if(tipoString == "OrdC")
-        tipo = 2;
+        *tipoInt = 2;
     if(tipoString == "OrdD")
-        tipo = 3;
+        *tipoInt = 3;
 }
-*/

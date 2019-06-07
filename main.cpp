@@ -10,14 +10,24 @@
 using namespace std;
 
 
-int main(int argc, char *argv[]){
-    string tipoString;
-    int tipo;
+int main(int argc, char* argv[]){
+    string tipoVetorString;
+    int tipoVetorInt;
     int tamanhoVetor;
 
-    tamanhoVetor = 20;
+    // Perguntas
+    //cout << "Digite o tipo de vetor que você deseja: ";
+    //cin >> tipoVetorString;
+    //cout << "Digite o tamanho do vetor que você deseja: ";
+    //cin >> tamanhoVetor;
 
-    //tipo = definirTipo(tipoString, tipo);
+    tipoVetorString = argv[2];
+    tamanhoVetor = argv[3];
+    
+
+    definirTipo(tipoVetorString, &tipoVetorInt);
+
+    //tipo = definirTipo(tipoVetorString, tipo);
     int *vetor = gerarVetor(1,tamanhoVetor);
     cout << "Antes Do Quicksort" <<endl;
     imprimirVetor(vetor,tamanhoVetor);
