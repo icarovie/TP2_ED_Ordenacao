@@ -14,13 +14,21 @@ int* gerarVetor(int tipo, int tamanho) {
             return gerarVetorDecrescente(tamanho);
 }
 
+int* gerarVetorAleatorio(int tamanho) {
+    int* vetor = (int*) malloc(tamanho * sizeof(int));
+
+    for (int i=0; i<tamanho; i++) {
+        vetor[i] = rand();
+    }
+    return vetor;
+}
+
 int* gerarVetorCrescente(int tamanho) {
     int* vetor = (int*) malloc(tamanho * sizeof(int));
 
     for (int i=0; i<tamanho; i++) {
         vetor[i] = i;
     }
-
     return vetor;
 }
 
@@ -31,15 +39,6 @@ int* gerarVetorDecrescente(int tamanho) {
         vetor[j] = i;
     }
 
-    return vetor;
-}
-
-int* gerarVetorAleatorio(int tamanho) {
-    int* vetor = (int*) malloc(tamanho * sizeof(int));
-
-    for (int i=0; i<tamanho; i++) {
-        vetor[i] = rand();
-    }
     return vetor;
 }
 
