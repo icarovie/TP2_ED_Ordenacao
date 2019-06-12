@@ -105,7 +105,7 @@ void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned l
     int pivo;
 	i = esquerda;
 	j = direita - 1;
-	pivo = vetor[0];
+	pivo = vetor[esquerda];
 
 	while(i <= j){
         (*numeroComparacoes)++;
@@ -121,8 +121,8 @@ void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned l
 		}
 	}
 	if(j > esquerda)
-		quicksort(vetor, esquerda, j+1,numeroComparacoes,numeroTrocas);
+		quicksortPrimeiroElemento(vetor, esquerda, j+1,numeroComparacoes,numeroTrocas);
 	if(i < direita)
-		quicksort(vetor, i, direita, numeroComparacoes,numeroTrocas);
+		quicksortPrimeiroElemento(vetor, i, direita, numeroComparacoes,numeroTrocas);
 	
 }

@@ -2,6 +2,7 @@
 #include <string>
 #include <time.h>
 #include "helpers.hpp"
+#include <conio.h>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int* gerarVetor(int tipo, int tamanho) {
 
 int* gerarVetorAleatorio(int tamanho) {
     int* vetor = (int*) malloc(tamanho * sizeof(int));
-
+    srand(time(NULL));
     for (int i=0; i<tamanho; i++) {
         vetor[i] = rand();
     }
