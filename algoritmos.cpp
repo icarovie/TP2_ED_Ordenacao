@@ -11,7 +11,7 @@ void trocar(int *vetor, int i, int j){
 /*
  *  QUICKSORT CLASSICO 
  */
-int quicksort(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas){
+void quicksort(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas){
 	int i, j;
     int pivo;
 	i = esquerda;
@@ -94,4 +94,35 @@ void quicksortMedianaDeTres(int vetor[], int inicio, int fim) {
         quicksortMedianaDeTres(vetor, inicio, q - 1);
         quicksortMedianaDeTres(vetor, q + 1, fim);
     }
+}
+
+/**
+ *  QUICKSORT PIVÔ PRIMEIRO ELEMENTO
+ */
+
+void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas){
+	int i, j;
+    int pivo;
+	i = esquerda;
+	j = direita - 1;
+	pivo = vetor[0];
+
+	while(i <= j){
+        (*numeroComparacoes)++;
+		while(vetor[i] < pivo && i < direita){ i++; }
+        (*numeroComparacoes)++;
+		while(vetor[j] > pivo && j > esquerda){ j--; }
+        (*numeroComparacoes)++;
+		if(i <= j){
+            trocar(vetor,i,j);
+            (*numeroTrocas)++;
+			i++;
+			j--;
+		}
+	}
+	if(j > esquerda)
+		quicksort(vetor, esquerda, j+1,numeroComparacoes,numeroTrocas);
+	if(i < direita)
+		quicksort(vetor, i, direita, numeroComparacoes,numeroTrocas);
+	
 }

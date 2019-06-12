@@ -12,6 +12,7 @@ int* gerarVetor(int tipo, int tamanho) {
             return gerarVetorCrescente(tamanho);
     if(tipo == 3)
             return gerarVetorDecrescente(tamanho);
+    return 0;
 }
 
 int* gerarVetorAleatorio(int tamanho) {
