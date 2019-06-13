@@ -4,7 +4,6 @@
 #include <time.h>
 
 // Inclusão de .H
-//#include "algoritmos.hpp"
 #include "helpers.hpp"
 #include "controller.hpp"
 
@@ -16,6 +15,7 @@ int main(int argc, char* argv[]){
     string variacaoQuicksort, tipoVetorString, aux;
     int tipoVetorInt, tamanhoVetor;
     bool exibirVetores = false;
+    unsigned long long int numeroComparacoes = 0, numeroTrocas = 0;
 
     // Define as Preferencias do Usuario
     variacaoQuicksort = argv[1];
@@ -35,7 +35,10 @@ int main(int argc, char* argv[]){
     definirTipo(tipoVetorString, &tipoVetorInt);
 
     // Taca-lhe Pau Marcio
-    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, exibirVetores);
+    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, exibirVetores, &numeroComparacoes, &numeroTrocas);
+
+    cout << "Numero de Trocas: " <<endl;
+    cout << "Numero de Comparacoes: " <<endl;
 
 	return 0;
 }
