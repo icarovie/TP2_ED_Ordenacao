@@ -35,7 +35,6 @@ void quicksort(int *vetor, int esquerda, int direita, unsigned long int *numeroC
 		quicksort(vetor, esquerda, j+1,numeroComparacoes,numeroTrocas);
 	if(i < direita)
 		quicksort(vetor, i, direita, numeroComparacoes,numeroTrocas);
-	
 }
 
 /*
@@ -101,11 +100,10 @@ void quicksortMedianaDeTres(int vetor[], int inicio, int fim) {
  */
 
 void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas){
-	int i, j;
-    int pivo;
+	int i, j, pivo;
 	i = esquerda;
 	j = direita - 1;
-	pivo = vetor[esquerda];
+	pivo = (esquerda + direita)/2;
 
 	while(i <= j){
         (*numeroComparacoes)++;
@@ -126,3 +124,7 @@ void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned l
 		quicksortPrimeiroElemento(vetor, i, direita, numeroComparacoes,numeroTrocas);
 	
 }
+
+/**
+ * QUICKSORT 1%
+ */

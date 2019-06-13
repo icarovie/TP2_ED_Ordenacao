@@ -13,4 +13,7 @@ void quicksortMedianaDeTres(int *vetor, int inicio, int fim);
 // Quicksort Primeiro Elemento
 void quicksortPrimeiroElemento(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas);
 
+// Quicksort 1%
+void quicksortInsercaoUm(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas);
+
 #endif

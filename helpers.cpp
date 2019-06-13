@@ -57,3 +57,4 @@ void definirTipo(string tipoString, int *tipoInt){
     if(tipoString == "OrdD")
         *tipoInt = 3;
 }
+
