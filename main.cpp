@@ -33,12 +33,13 @@ int main(int argc, char* argv[]){
 
     // Converto o tipo do vetor de string pra numero, a fim de facilitar a geracao dele
     definirTipo(tipoVetorString, &tipoVetorInt);
-
+    cout << "Passei da Definicao do Tipo" <<endl;
     // Taca-lhe Pau Marcio
     iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, exibirVetores, &numeroComparacoes, &numeroTrocas);
 
-    cout << "Numero de Trocas: " <<endl;
-    cout << "Numero de Comparacoes: " <<endl;
+
+    cout << endl << "Numero de Trocas: "<< numeroTrocas <<endl;
+    cout << "Numero de Comparacoes: "<< numeroComparacoes <<endl;
 
 	return 0;
 }

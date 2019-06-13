@@ -64,7 +64,7 @@ void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int
             precisaInserir = true;
         }
     }
-
+    cout << "Cheguei no ponto de comecar o QuickSort" <<endl;
     // Caso não precise de inserção
     if (!precisaInserir) {
         // Realiza o quicksort normalmente
