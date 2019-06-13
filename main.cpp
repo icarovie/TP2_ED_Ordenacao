@@ -16,7 +16,6 @@ int main(int argc, char* argv[]){
     string variacaoQuicksort, tipoVetorString, aux;
     int tipoVetorInt, tamanhoVetor;
     bool exibirVetores = false;
-    unsigned long int numeroComparacoes = 0, numeroTrocas = 0;
 
     // Define as Preferencias do Usuario
     variacaoQuicksort = argv[1];
@@ -36,7 +35,7 @@ int main(int argc, char* argv[]){
     definirTipo(tipoVetorString, &tipoVetorInt);
 
     // Taca-lhe Pau Marcio
-    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, numeroComparacoes, numeroTrocas, exibirVetores);
+    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, exibirVetores);
 
 	return 0;
 }

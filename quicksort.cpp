@@ -43,7 +43,7 @@ void nonRecursive(int *vetor, int size) {
 }
 */
 
-void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int tamanho, int &numeroComparacoes, int &numeroTrocas) {
+void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int tamanho, int *numeroComparacoes, int *numeroTrocas) {
     int i,j; // Índices que serão usados posteriormente
     bool precisaInserir = false; // Variável para definir se é preciso chamar o método de inserção ou não
 
@@ -68,22 +68,22 @@ void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int
     // Caso não precise de inserção
     if (!precisaInserir) {
         // Realiza o quicksort normalmente
-        particao(variacaoQuicksort, esquerda, direita, &i, &j, vetor, numeroComparacoes, numeroTrocas);
+        particao(variacaoQuicksort, esquerda, direita, &i, &j, vetor, &numeroComparacoes, &numeroTrocas);
         (numeroComparacoes)++;
         if (esquerda < j) {
-            ordena(variacaoQuicksort, esquerda, j, vetor, tamanho, numeroComparacoes,numeroTrocas);
+            ordena(variacaoQuicksort, esquerda, j, vetor, tamanho, &numeroComparacoes, &numeroTrocas);
         }
         (numeroComparacoes)++;
         if (direita > i) {
-            ordena(variacaoQuicksort, i, direita, vetor, tamanho, numeroComparacoes,numeroTrocas);
+            ordena(variacaoQuicksort, i, direita, vetor, tamanho, &numeroComparacoes,&numeroTrocas);
         }
     } else {
         // Caso precise, chama o método de inserção
-        insercao(vetor,esquerda,direita, numeroComparacoes, numeroTrocas); // Ordena o subvetor com o inserção
+        insercao(vetor,esquerda,direita, &numeroComparacoes, &numeroTrocas); // Ordena o subvetor com o inserção
     }
 }
 
-void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *j, int *vetor,int &numeroComparacoes, int &numeroTrocas) {
+void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *j, int *vetor,int *numeroComparacoes, int *numeroTrocas) {
     int pivo, aux;
     *i = esquerda; *j = direita;
 
@@ -121,18 +121,18 @@ void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *
     // Faz as chamadas recursivas enquanto for necessário
     while (*i <= *j) {
         while (pivo > vetor[*i]) {
-            (numeroComparacoes)++;
+            (*numeroComparacoes)++;
             (*i)++;
         }
         while (pivo < vetor[*j]) {
-            (numeroComparacoes)++;
+            (*numeroComparacoes)++;
             (*j)--;
         }
-        (numeroComparacoes)++;
+        (*numeroComparacoes)++;
         if (*i <= *j) {
-            (numeroComparacoes)++;
+            (*numeroComparacoes)++;
             if (*i < *j) {
-                (numeroTrocas)++;
+                (*numeroTrocas)++;
                 //Troco os Elementos de Lugar
                 aux= vetor[*i];
                 vetor[*i] = vetor[*j]; 
@@ -140,23 +140,23 @@ void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *
             }
             (*i)++; (*j)--;
         }
-        (numeroComparacoes)++;
+        (*numeroComparacoes)++;
     }
 }
 
-void insercao(int *vetor, int esquerda, int direita, int &numeroTrocas, int &numeroComparacoes) {
+void insercao(int *vetor, int esquerda, int direita, int *numeroTrocas, int *numeroComparacoes) {
     int i, j, aux;
     // Percorre o vetor da posição esquerda até a posição direita e ordena essa parte do vetor
     for (i = esquerda; i < direita; i++) {
         aux = vetor[i];
         j = i;
         while (j >= 0 && vetor[j] > aux) {
-            (numeroComparacoes)++;
-            (numeroTrocas)++;
+            (*numeroComparacoes)++;
+            (*numeroTrocas)++;
             vetor[j + 1] = vetor[j];
             j--;
         }
-        (numeroTrocas)++;
+        (*numeroTrocas)++;
         vetor[j + 1] = aux;
     }
 }
