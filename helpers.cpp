@@ -1,7 +1,8 @@
+#include "helpers.hpp"
+
 #include <iostream>
 #include <string>
 #include <time.h>
-#include "helpers.hpp"
 #include <conio.h>
 
 using namespace std;

@@ -4,8 +4,9 @@
 #include <time.h>
 
 // Inclusão de .H
-#include "algoritmos.hpp"
+//#include "algoritmos.hpp"
 #include "helpers.hpp"
+#include "controller.hpp"
 
 using namespace std;
 
@@ -22,37 +23,20 @@ int main(int argc, char* argv[]){
     tipoVetorString = argv[2];
     tamanhoVetor = atoi(argv[3]);
     
+    // Verifico se existe um parametro 4
     if (argv[4]) {
         aux = argv[4];
     } else {
         aux = " ";
     }
+    // Se existir eu defino que os vetores devem ser impressos
     exibirVetores = !aux.compare("-p");
-    
+
+    // Converto o tipo do vetor de string pra numero, a fim de facilitar a geracao dele
     definirTipo(tipoVetorString, &tipoVetorInt);
 
-    int *vetor = gerarVetor(tipoVetorInt,tamanhoVetor);
-
-    if(exibirVetores){
-        cout << "Antes Do Quicksort" <<endl;
-        imprimirVetor(vetor,tamanhoVetor);
-        cout <<endl;
-    }
-
-    //quicksort(vetor,0,tamanhoVetor, &numeroComparacoes,&numeroTrocas);
-    //quicksortMedianaDeTres(vetor,0,tamanhoVetor);
-    //quicksortPrimeiroElemento(vetor,0,tamanhoVetor, &numeroComparacoes,&numeroTrocas);
-
-    if(exibirVetores){
-        cout << " Depois Do Quicksort" <<endl;
-        imprimirVetor(vetor,tamanhoVetor);
-        cout <<endl;
-    }
-
-    cout << "Numero De Comparacoes feitas: " << numeroComparacoes<<endl;
-    cout << "Numero De Trocas Feitas: " << numeroTrocas <<endl;
-
-    free(vetor);
+    // Taca-lhe Pau Marcio
+    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, numeroComparacoes, numeroTrocas, exibirVetores);
 
 	return 0;
 }
