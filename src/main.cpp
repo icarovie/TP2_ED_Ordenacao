@@ -6,7 +6,9 @@
 
 // Inclusão de .H
 #include "helpers.hpp"
-#include "controller.hpp"
+//#include "controller.hpp"
+#include "qc.hpp"
+
 
 using namespace std;
 
@@ -16,7 +18,7 @@ int main(int argc, char* argv[]){
     string variacaoQuicksort, tipoVetorString, aux;
     int tipoVetorInt, tamanhoVetor;
     bool exibirVetores = false;
-    unsigned long long int numeroComparacoes = 0, numeroTrocas = 0;
+    double numeroComparacoes = 0, numeroTrocas = 0;
 
     // Define as Preferencias do Usuario
     variacaoQuicksort = argv[1];
@@ -34,12 +36,19 @@ int main(int argc, char* argv[]){
 
     // Converto o tipo do vetor de string pra numero, a fim de facilitar a geracao dele
     definirTipo(tipoVetorString, &tipoVetorInt);
+
+    // Gero o Vetor
+    int *vetor = gerarVetor(tipoVetorInt,tamanhoVetor);
     
+    quicksortClassico(vetor,tamanhoVetor, &numeroComparacoes, &numeroTrocas);
     // Taca-lhe Pau Marcio
-    iniciaPrograma(variacaoQuicksort, tamanhoVetor, tipoVetorInt, exibirVetores, &numeroComparacoes, &numeroTrocas);
-    cout << "Passei TOTALMENTE  do COMPLETAMENTE" <<endl;
+    //iniciaPrograma(variacaoQuicksort,vetor, tamanhoVetor, tipoVetorInt, exibirVetores, &numeroComparacoes, &numeroTrocas);
     cout << endl << "Numero de Trocas: "<< numeroTrocas <<endl;
     cout << "Numero de Comparacoes: "<< numeroComparacoes <<endl;
 
+    if(exibirVetores)
+        imprimirVetor(vetor,tamanhoVetor);
+
+    free(vetor);
 	return 0;
 }

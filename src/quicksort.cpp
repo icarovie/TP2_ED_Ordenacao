@@ -43,10 +43,9 @@ void nonRecursive(int *vetor, int size) {
 }
 */
 
-void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int tamanho, unsigned long long int *numeroComparacoes, unsigned long long int *numeroTrocas) {
+void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int tamanho, double *numeroComparacoes, double *numeroTrocas) {
     int i,j; // Índices que serão usados posteriormente
     bool precisaInserir = false; // Variável para definir se é preciso chamar o método de inserção ou não
-    cout<<"inicio do ordena"<<endl;
     // Avalia se é necessário chamar o método de inserção
     if (variacaoQuicksort == "QI1" || variacaoQuicksort == "QI5" || variacaoQuicksort == "QI10") {
         double porcentagem; // Porcentagem a partir da qual devemos chamar o inserção
@@ -68,13 +67,12 @@ void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int
     // Caso não precise de inserção
     if (!precisaInserir) {
         // Realiza o quicksort normalmente
-        particao(variacaoQuicksort, esquerda, direita, &i, &j, vetor, numeroComparacoes, numeroTrocas);
-        cout << "Esquerda: " << esquerda << " J: " << j << " I: " << i << " Direita: " << direita << endl;  
-        (numeroComparacoes)++;
+        particao(variacaoQuicksort, esquerda, direita, &i, &j, vetor, numeroComparacoes, numeroTrocas);  
+        //(numeroComparacoes)++;
         if (esquerda < j) {
             ordena(variacaoQuicksort, esquerda, j, vetor, tamanho, numeroComparacoes, numeroTrocas);
         }
-        (numeroComparacoes)++;
+        //(numeroComparacoes)++;
         if (direita > i) {
             ordena(variacaoQuicksort, i, direita, vetor, tamanho, numeroComparacoes,numeroTrocas);
         }
@@ -84,10 +82,9 @@ void ordena(string variacaoQuicksort, int esquerda, int direita, int *vetor, int
     }
 }
 
-void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *j, int *vetor, unsigned long long int *numeroComparacoes, unsigned long long int *numeroTrocas) {
+void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *j, int *vetor, double *numeroComparacoes, double *numeroTrocas) {
     int pivo, aux;
     *i = esquerda; *j = direita;
-    cout << "inicio particao" << endl;
     // Escolhe o pivo com base no tipo do Quicksort
     if (variacaoQuicksort == "QC"  || variacaoQuicksort == "QNR") {
         // Clássico e Não-recursivo tem como pivo o elemento central
@@ -120,42 +117,41 @@ void particao(string variacaoQuicksort, int esquerda, int direita, int *i, int *
     }
 
     // Faz as chamadas recursivas enquanto for necessário
-    while (*i <= *j){
+    do{
         while (pivo > vetor[*i]) {
-            (*numeroComparacoes)++;
+            //(*numeroComparacoes)++;
             (*i)++;
         }
         while (pivo < vetor[*j]) {
-            (*numeroComparacoes)++;
+            //(*numeroComparacoes)++;
             (*j)--;
         }
-        (*numeroComparacoes)++;
+        //(*numeroComparacoes)++;
         if (*i <= *j) {
-            (*numeroTrocas)++;
+           // (*numeroTrocas)++;
             //Troco os Elementos de Lugar
             aux= vetor[*i];
             vetor[*i] = vetor[*j]; 
             vetor[*j] = aux;
             (*i)++; (*j)--;
         }
-        (*numeroComparacoes)++;
-    }
-    cout<<"fim particao"<<endl;
+        //(*numeroComparacoes)++;
+    } while (*i <= *j);
 }
 
-void insercao(int *vetor, int esquerda, int direita, unsigned long long int *numeroTrocas, unsigned long long int *numeroComparacoes) {
+void insercao(int *vetor, int esquerda, int direita, double *numeroTrocas, double *numeroComparacoes) {
     int i, j, aux;
     // Percorre o vetor da posição esquerda até a posição direita e ordena essa parte do vetor
     for (i = esquerda; i < direita; i++) {
         aux = vetor[i];
         j = i;
         while (j >= 0 && vetor[j] > aux) {
-            (*numeroComparacoes)++;
-            (*numeroTrocas)++;
+            //(*numeroComparacoes)++;
+           // (*numeroTrocas)++;
             vetor[j + 1] = vetor[j];
             j--;
         }
-        (*numeroTrocas)++;
+        //(*numeroTrocas)++;
         vetor[j + 1] = aux;
     }
 }

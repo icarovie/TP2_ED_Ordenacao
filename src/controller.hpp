@@ -9,6 +9,6 @@
 
 using namespace std;
 
-void iniciaPrograma(string variacaoQuicksort, int tamanhoVetor, int tipoVetor, bool exibirVetores, unsigned long long int *numeroComparacoes, unsigned long long int *numeroTrocas);
+void iniciaPrograma(string variacaoQuicksort, int *vetor, int tamanhoVetor, int tipoVetor, bool exibirVetores, double *numeroComparacoes, double *numeroTrocas);
 
 #endif

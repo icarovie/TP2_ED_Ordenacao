@@ -1,4 +1,5 @@
 #include <iostream>
+#include "helpers.hpp"
 
 void trocar(int *vetor, int i, int j){
     int aux;
@@ -11,7 +12,7 @@ void trocar(int *vetor, int i, int j){
 /*
  *  QUICKSORT CLASSICO 
  */
-void quicksort(int *vetor, int esquerda, int direita, unsigned long int *numeroComparacoes, unsigned long int *numeroTrocas){
+void quicksort(int *vetor, int esquerda, int direita, double *numeroComparacoes, double *numeroTrocas){
 	int i, j;
     int pivo;
 	i = esquerda;
