@@ -5,7 +5,7 @@
 #include <string>
 
 #include "helpers.hpp"
-#include "quicksort.hpp"
+#include "qc.hpp"
 
 using namespace std;
 

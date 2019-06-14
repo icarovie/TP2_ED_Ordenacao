@@ -36,13 +36,14 @@ int main(int argc, char* argv[]){
 
     // Converto o tipo do vetor de string pra numero, a fim de facilitar a geracao dele
     definirTipo(tipoVetorString, &tipoVetorInt);
-
     // Gero o Vetor
     int *vetor = gerarVetor(tipoVetorInt,tamanhoVetor);
+
+    // Defino Qual Algoritmo do Quicksort Deve Ser Utilizado
+    if(variacaoQuicksort == "QC")
+        quicksortClassico(vetor,tamanhoVetor, &numeroComparacoes, &numeroTrocas);
     
-    quicksortClassico(vetor,tamanhoVetor, &numeroComparacoes, &numeroTrocas);
     // Taca-lhe Pau Marcio
-    //iniciaPrograma(variacaoQuicksort,vetor, tamanhoVetor, tipoVetorInt, exibirVetores, &numeroComparacoes, &numeroTrocas);
     cout << endl << "Numero de Trocas: "<< numeroTrocas <<endl;
     cout << "Numero de Comparacoes: "<< numeroComparacoes <<endl;
 
