@@ -26,12 +26,14 @@ void particiona(int esquerda, int direita, int *i, int *j, int *vetor, double* n
 
             *numeroComparacoes+=1;
             if (*i <= *j){
-             numeroComparacoes+=1;
+             *numeroComparacoes+=1;
+             cout << "I:" << i << "J: "<< j <<endl;
                 if(*i  < *j){
                     aux= vetor[*i];
                     vetor[*i] = vetor[*j];
                     vetor[*j] = aux;
-                    numeroTrocas+=1;
+                    cout << "Entrei no segundo if" <<endl;
+                    *numeroTrocas+=1;
                 }
                 (*i)++; 
                 (*j)--;
@@ -45,7 +47,7 @@ void particiona(int esquerda, int direita, int *i, int *j, int *vetor, double* n
 void ordena(int esquerda, int direita, int *vetor, double *numeroComparacoes, double *numeroTrocas){ 
     int i; 
     int j;
-    
+    cout << "VAI TOMAR NO CU" <<endl;
     particiona(esquerda, direita, &i, &j, vetor,numeroComparacoes,numeroTrocas);
     
     if (esquerda < j)
