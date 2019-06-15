@@ -1,3 +1,6 @@
+// Programa : Quicksort e suas variacoes
+// Autor: Icaro Henrique Vieira Pinheiro
+
 // Inclusao das Bibliotecas Padrao
 // Makefile C:\MinGW\bin\mingw32-make.exe
 #include <iostream>
@@ -79,6 +82,7 @@ int main(int argc, char* argv[]){
     // Saida
     cout << variacaoQuicksort <<" "<< tipoVetorString<<" "<<tamanhoVetor<<" "<< numeroComparacoes<<" "<<numeroTrocas<<" "<< tempoSegundos << endl;
 
+    // Caso o usuario passe o parametro -p eu imprimo os vetores
     if(exibirVetores)
         cout << vetorString.str() << endl;
     
