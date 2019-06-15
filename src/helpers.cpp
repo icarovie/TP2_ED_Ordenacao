@@ -4,6 +4,7 @@
 #include <string>
 #include <time.h>
 #include <conio.h>
+#include <sstream>
 
 using namespace std;
 
@@ -58,5 +59,61 @@ void definirTipo(string tipoString, int *tipoInt){
         *tipoInt = 2;
     if(tipoString == "OrdD")
         *tipoInt = 3;
+}
+
+int calculaMediana(int i, int meio, int j){
+    // Se o meu prieiro elemento for menos que o meu ultimo elemento
+	if (i < j){
+        // E o meu elemento do meio for menor que o meu primeiro elemento
+		if (meio < i)
+            // Então o meu primeiro elemento é a mediana
+			return 1;
+
+		else if (j < meio) 
+			return 3;
+
+		else
+			return 2;
+	}
+
+    // Se o meu ultimo for maior que o meu elemento do meio
+	else if (meio < j)
+        // O Meu ultimo é a mediana
+		return 3;
+
+    // Se o meu primeiro elemento for menor que o meu elemento do meio
+	else if (i < meio)
+        // Meu primeiro elemento é a mediana
+		return 1;
+        
+	else
+		return 2;
+}
+
+
+void insercao(int *vetor, int esquerda, int direita, double *numeroComparacoes, double *numeroTrocas){
+	int i, j, aux;
+    
+	for (i = esquerda; i < direita; i++){
+		aux = vetor[i];
+		j = i;
+        // Se a direita for maior que Zero, e o meu elemento for menor, entao eu insiro
+		while ((j>=0)&&(aux<vetor[j])){
+			*numeroComparacoes+=1;
+			*numeroTrocas+=1;
+			vetor[j+1] = vetor[j];
+			j--;
+		}
+		vetor[j+1] = aux;
+	}
+}
+
+string vetorPraString(int *vetor, int tamanhoVetor) {
+    stringstream ss;
+    for (int i=0; i<tamanhoVetor; i++) {
+        ss << vetor[i] << " ";
+    }
+    ss << "\n";
+    return ss.str();
 }
 

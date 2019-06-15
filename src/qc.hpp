@@ -6,24 +6,25 @@
 
 using namespace std;
 
-
-//QuickSort Clássico
+//Particiona o vetor em dois subvetores
 void particiona(int esquerda, int direita, int *i, int *j, int *vetor, double* numeroComparacoes, double* numeroTrocas){
 
     int pivo, aux;
     *i = esquerda; *j = direita;
-    pivo = vetor[(*i + *j)/2]; //Pivo
+    pivo = vetor[(*i + *j)/2];
 
         do{
+            // Indentifico do lado esquerdo qual é o primeiro elemento maior que o meu pivô
             while (pivo > vetor[*i]){
                 *numeroComparacoes+=1;
                 (*i)++;
             }
+            // Identifico do lado direito o primeiro elemento menor que o meu pivô
             while (pivo < vetor[*j]){
                 *numeroComparacoes+=1;
                 (*j)--;
             }
-
+            // Caso os indices não tenham ferido o principio de que os indices I e J não se cruzaram, eu troco o A e o B de lugar
             *numeroComparacoes+=1;
             if (*i <= *j){
              *numeroComparacoes+=1;
@@ -37,10 +38,11 @@ void particiona(int esquerda, int direita, int *i, int *j, int *vetor, double* n
                 (*j)--;
             }
             *numeroComparacoes+=1;
-            
+        // Repito o processo até que os indices I e J se cruzem
         } while (*i <= *j);
 
 }
+
 
 void ordena(int esquerda, int direita, int *vetor, double *numeroComparacoes, double *numeroTrocas){ 
     int i; 
